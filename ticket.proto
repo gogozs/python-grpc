@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package ticket;
+
+message Empty {
+}
+
+// 12306 登录
+message LoginQuery {
+    string username = 1;
+    string password = 2;
+}
+
+// 通用请求
+message CommonQuery {
+    string username = 1;
+}
+
+// 通用返回值
+message CommonResponse {
+    int32 code = 1; // 0 success  其它对应不同error
+    string msg = 2;
+}
+
+// 联系人信息
+message Passenger {
+    string name = 1;
+    string id_number = 2;
+    string type = 3;
+}
+
+// 获取用户信息
+message UserInfoResponse {
+    repeated Passenger passengers = 1; // User list
+    int32 code = 2; // 1 success  其它对应不同error
+    string msg = 3;
+}
+
+// 车次查询参数
+message TrainQuery {
+    string date = 1; // 2019-10-01
+    string start_station = 2; // 起点
+    string end_station = 3; // 终点
+    int32 page_number = 4; // 1
+    int32 page_size = 5; // 50
+    CommonQuery common_query = 6;
+}
+
+// 车次信息
+message TrainInfo {
+    string train_number = 1; // 车次
+    string start_time = 2; // 开车时间
+    string end_time = 3; // 到站时间
+    string start_station = 4; // 起点
+    string end_station = 5; // 终点
+    map<string, string> ticket_remain = 6; // key: 座位类型  value: 余票数量
+    map<string, string> ticket_alternate = 7; // key: 座位类型  value: 候补状态
+}
+
+// 车次查询结果
+message TrainResponse {
+    repeated TrainInfo data = 1;
+    int32 code = 2; // 1 success  其它对应不同error
+    string msg = 3;
+}
+
+// 创建抢票订单参数
+message OrderParams {
+    string start_station = 1; // 起点
+    string end_station = 2; // 终点
+    repeated string dates = 3; // 多个日期
+    repeated string train_numbers = 4; // 多个车次
+    repeated string ticket_types = 5; // 多个座位类型
+    CommonQuery common_query = 6;
+}
+
+// 单个订单结果
+message OrderInfo {
+    string start_station = 1; // 起点
+    string end_station = 2; // 终点
+    repeated string dates = 3; // 多个日期
+    repeated string train_numbers = 4; // 多个车次
+    repeated string ticket_types = 5; // 多个座位类型
+}
+
+message OrderResponse {
+    repeated OrderInfo orders = 1;
+    int32 code = 2; // 1 success  其它对应不同error
+    string msg = 3;
+}
+
+service TrainServer {
+    // 登录
+    rpc LoginRequest (LoginQuery) returns (UserInfoResponse) {
+    }
+
+    // 获取用户信息
+    rpc GetUserInfo (Empty) returns (UserInfoResponse) {
+    }
+
+    // 获取车次信息
+    rpc GetTrainInfo (TrainQuery) returns (TrainResponse) {
+    }
+
+    // 创建抢票订单
+    rpc AddOrder (OrderParams) returns (CommonResponse) {
+
+    }
+
+    // 查询抢票订单
+    rpc QueryOrder (CommonQuery) returns (OrderResponse) {
+
+    }
+}
