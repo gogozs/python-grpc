@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ticket',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cticket.proto\x12\x06ticket\"\x07\n\x05\x45mpty\"0\n\nLoginQuery\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x1f\n\x0b\x43ommonQuery\x12\x10\n\x08username\x18\x01 \x01(\t\"+\n\x0e\x43ommonResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03msg\x18\x02 \x01(\t\":\n\tPassenger\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tid_number\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\"T\n\x10UserInfoResponse\x12%\n\npassengers\x18\x01 \x03(\x0b\x32\x11.ticket.Passenger\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"\x99\x01\n\nTrainQuery\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x15\n\rstart_station\x18\x02 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x03 \x01(\t\x12\x13\n\x0bpage_number\x18\x04 \x01(\x05\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12)\n\x0c\x63ommon_query\x18\x06 \x01(\x0b\x32\x13.ticket.CommonQuery\"\xde\x02\n\tTrainInfo\x12\x14\n\x0ctrain_number\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\t\x12\x15\n\rstart_station\x18\x04 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x05 \x01(\t\x12:\n\rticket_remain\x18\x06 \x03(\x0b\x32#.ticket.TrainInfo.TicketRemainEntry\x12@\n\x10ticket_alternate\x18\x07 \x03(\x0b\x32&.ticket.TrainInfo.TicketAlternateEntry\x1a\x33\n\x11TicketRemainEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x36\n\x14TicketAlternateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"K\n\rTrainResponse\x12\x1f\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x11.ticket.TrainInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"\xa0\x01\n\x0bOrderParams\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\x12)\n\x0c\x63ommon_query\x18\x06 \x01(\x0b\x32\x13.ticket.CommonQuery\"s\n\tOrderInfo\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\"M\n\rOrderResponse\x12!\n\x06orders\x18\x01 \x03(\x0b\x32\x11.ticket.OrderInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xbb\x02\n\x0bTrainServer\x12>\n\x0cLoginRequest\x12\x12.ticket.LoginQuery\x1a\x18.ticket.UserInfoResponse\"\x00\x12\x38\n\x0bGetUserInfo\x12\r.ticket.Empty\x1a\x18.ticket.UserInfoResponse\"\x00\x12;\n\x0cGetTrainInfo\x12\x12.ticket.TrainQuery\x1a\x15.ticket.TrainResponse\"\x00\x12\x39\n\x08\x41\x64\x64Order\x12\x13.ticket.OrderParams\x1a\x16.ticket.CommonResponse\"\x00\x12:\n\nQueryOrder\x12\x13.ticket.CommonQuery\x1a\x15.ticket.OrderResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0cticket.proto\x12\x06ticket\"\x07\n\x05\x45mpty\"0\n\nLoginQuery\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"\x1f\n\x0b\x43ommonQuery\x12\x10\n\x08username\x18\x01 \x01(\t\"+\n\x0e\x43ommonResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03msg\x18\x02 \x01(\t\":\n\tPassenger\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tid_number\x18\x02 \x01(\t\x12\x0c\n\x04type\x18\x03 \x01(\t\"T\n\x10UserInfoResponse\x12%\n\npassengers\x18\x01 \x03(\x0b\x32\x11.ticket.Passenger\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"\x99\x01\n\nTrainQuery\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x15\n\rstart_station\x18\x02 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x03 \x01(\t\x12\x13\n\x0bpage_number\x18\x04 \x01(\x05\x12\x11\n\tpage_size\x18\x05 \x01(\x05\x12)\n\x0c\x63ommon_query\x18\x06 \x01(\x0b\x32\x13.ticket.CommonQuery\"\xde\x02\n\tTrainInfo\x12\x14\n\x0ctrain_number\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\t\x12\x15\n\rstart_station\x18\x04 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x05 \x01(\t\x12:\n\rticket_remain\x18\x06 \x03(\x0b\x32#.ticket.TrainInfo.TicketRemainEntry\x12@\n\x10ticket_alternate\x18\x07 \x03(\x0b\x32&.ticket.TrainInfo.TicketAlternateEntry\x1a\x33\n\x11TicketRemainEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x36\n\x14TicketAlternateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"K\n\rTrainResponse\x12\x1f\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x11.ticket.TrainInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"\xc7\x01\n\x0bOrderParams\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\x12%\n\npassengers\x18\x06 \x03(\x0b\x32\x11.ticket.Passenger\x12)\n\x0c\x63ommon_query\x18\x07 \x01(\x0b\x32\x13.ticket.CommonQuery\"s\n\tOrderInfo\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\"M\n\rOrderResponse\x12!\n\x06orders\x18\x01 \x03(\x0b\x32\x11.ticket.OrderInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xbb\x02\n\x0bTrainServer\x12>\n\x0cLoginRequest\x12\x12.ticket.LoginQuery\x1a\x18.ticket.UserInfoResponse\"\x00\x12\x38\n\x0bGetUserInfo\x12\r.ticket.Empty\x1a\x18.ticket.UserInfoResponse\"\x00\x12;\n\x0cGetTrainInfo\x12\x12.ticket.TrainQuery\x1a\x15.ticket.TrainResponse\"\x00\x12\x39\n\x08\x41\x64\x64Order\x12\x13.ticket.OrderParams\x1a\x16.ticket.CommonResponse\"\x00\x12:\n\nQueryOrder\x12\x13.ticket.CommonQuery\x1a\x15.ticket.OrderResponse\"\x00\x62\x06proto3')
 )
 
 
@@ -548,8 +548,15 @@ _ORDERPARAMS = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='common_query', full_name='ticket.OrderParams.common_query', index=5,
-      number=6, type=11, cpp_type=10, label=1,
+      name='passengers', full_name='ticket.OrderParams.passengers', index=5,
+      number=6, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='common_query', full_name='ticket.OrderParams.common_query', index=6,
+      number=7, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -567,7 +574,7 @@ _ORDERPARAMS = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=894,
-  serialized_end=1054,
+  serialized_end=1093,
 )
 
 
@@ -625,8 +632,8 @@ _ORDERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1056,
-  serialized_end=1171,
+  serialized_start=1095,
+  serialized_end=1210,
 )
 
 
@@ -670,8 +677,8 @@ _ORDERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1173,
-  serialized_end=1250,
+  serialized_start=1212,
+  serialized_end=1289,
 )
 
 _USERINFORESPONSE.fields_by_name['passengers'].message_type = _PASSENGER
@@ -681,6 +688,7 @@ _TRAININFO_TICKETALTERNATEENTRY.containing_type = _TRAININFO
 _TRAININFO.fields_by_name['ticket_remain'].message_type = _TRAININFO_TICKETREMAINENTRY
 _TRAININFO.fields_by_name['ticket_alternate'].message_type = _TRAININFO_TICKETALTERNATEENTRY
 _TRAINRESPONSE.fields_by_name['data'].message_type = _TRAININFO
+_ORDERPARAMS.fields_by_name['passengers'].message_type = _PASSENGER
 _ORDERPARAMS.fields_by_name['common_query'].message_type = _COMMONQUERY
 _ORDERRESPONSE.fields_by_name['orders'].message_type = _ORDERINFO
 DESCRIPTOR.message_types_by_name['Empty'] = _EMPTY
@@ -807,8 +815,8 @@ _TRAINSERVER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1253,
-  serialized_end=1568,
+  serialized_start=1292,
+  serialized_end=1607,
   methods=[
   _descriptor.MethodDescriptor(
     name='LoginRequest',

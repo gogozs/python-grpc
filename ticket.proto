@@ -71,7 +71,8 @@ message OrderParams {
     repeated string dates = 3; // 多个日期
     repeated string train_numbers = 4; // 多个车次
     repeated string ticket_types = 5; // 多个座位类型
-    CommonQuery common_query = 6;
+    repeated Passenger passengers = 6; // 乘客信息
+    CommonQuery common_query = 7;
 }
 
 // 单个订单结果
