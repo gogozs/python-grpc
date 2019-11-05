@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package ticket;
 
+import "google/protobuf/timestamp.proto";
+
 message Empty {
 }
 
@@ -50,12 +52,14 @@ message TrainRequest {
 // 车次信息
 message TrainInfo {
     string train_number = 1; // 车次
-    string start_time = 2; // 开车时间
-    string end_time = 3; // 到站时间
+    google.protobuf.Timestamp start_time = 2; // 开车时间
+    google.protobuf.Timestamp end_time = 3; // 到站时间
     string start_station = 4; // 起点
     string end_station = 5; // 终点
-    map<string, string> ticket_remain = 6; // key: 座位类型  value: 余票数量
-    map<string, string> ticket_alternate = 7; // key: 座位类型  value: 候补状态
+    int32 duration = 6; // 运行时长 秒
+    int32 price = 7; // 价格
+    map<string, string> ticket_remain = 8; // key: 座位类型  value: 余票数量
+    map<string, bool> ticket_alternate = 9; // key: 座位类型  value: 候补状态
 }
 
 // 车次查询结果

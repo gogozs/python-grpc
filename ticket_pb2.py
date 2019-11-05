@@ -13,6 +13,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,8 +21,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='ticket',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0cticket.proto\x12\x06ticket\"\x07\n\x05\x45mpty\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"!\n\rCommonRequest\x12\x10\n\x08username\x18\x01 \x01(\t\"+\n\x0e\x43ommonResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03msg\x18\x02 \x01(\t\"_\n\tPassenger\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tid_number\x18\x02 \x01(\t\x12\x0f\n\x07id_type\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x12\n\nencode_str\x18\x05 \x01(\t\"T\n\x10UserInfoResponse\x12%\n\npassengers\x18\x01 \x03(\x0b\x32\x11.ticket.Passenger\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"p\n\x0cTrainRequest\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x15\n\rstart_station\x18\x02 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x03 \x01(\t\x12\x13\n\x0bpage_number\x18\x04 \x01(\x05\x12\x11\n\tpage_size\x18\x05 \x01(\x05\"\xde\x02\n\tTrainInfo\x12\x14\n\x0ctrain_number\x18\x01 \x01(\t\x12\x12\n\nstart_time\x18\x02 \x01(\t\x12\x10\n\x08\x65nd_time\x18\x03 \x01(\t\x12\x15\n\rstart_station\x18\x04 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x05 \x01(\t\x12:\n\rticket_remain\x18\x06 \x03(\x0b\x32#.ticket.TrainInfo.TicketRemainEntry\x12@\n\x10ticket_alternate\x18\x07 \x03(\x0b\x32&.ticket.TrainInfo.TicketAlternateEntry\x1a\x33\n\x11TicketRemainEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x36\n\x14TicketAlternateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"K\n\rTrainResponse\x12\x1f\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x11.ticket.TrainInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"\xb7\x01\n\x0cOrderRequest\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\x12\x12\n\npassengers\x18\x06 \x03(\t\x12+\n\x0c\x63ommon_query\x18\x07 \x01(\x0b\x32\x15.ticket.CommonRequest\"s\n\tOrderInfo\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\"M\n\rOrderResponse\x12!\n\x06orders\x18\x01 \x03(\x0b\x32\x11.ticket.OrderInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xbb\x02\n\x0bTrainServer\x12\x39\n\x05Login\x12\x14.ticket.LoginRequest\x1a\x18.ticket.UserInfoResponse\"\x00\x12\x38\n\x0bGetUserInfo\x12\r.ticket.Empty\x1a\x18.ticket.UserInfoResponse\"\x00\x12=\n\x0cGetTrainInfo\x12\x14.ticket.TrainRequest\x1a\x15.ticket.TrainResponse\"\x00\x12:\n\x08\x41\x64\x64Order\x12\x14.ticket.OrderRequest\x1a\x16.ticket.CommonResponse\"\x00\x12<\n\nQueryOrder\x12\x15.ticket.CommonRequest\x1a\x15.ticket.OrderResponse\"\x00\x62\x06proto3')
-)
+  serialized_pb=_b('\n\x0cticket.proto\x12\x06ticket\x1a\x1fgoogle/protobuf/timestamp.proto\"\x07\n\x05\x45mpty\"2\n\x0cLoginRequest\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\"!\n\rCommonRequest\x12\x10\n\x08username\x18\x01 \x01(\t\"+\n\x0e\x43ommonResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x05\x12\x0b\n\x03msg\x18\x02 \x01(\t\"_\n\tPassenger\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tid_number\x18\x02 \x01(\t\x12\x0f\n\x07id_type\x18\x03 \x01(\t\x12\x0c\n\x04type\x18\x04 \x01(\t\x12\x12\n\nencode_str\x18\x05 \x01(\t\"T\n\x10UserInfoResponse\x12%\n\npassengers\x18\x01 \x03(\x0b\x32\x11.ticket.Passenger\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"p\n\x0cTrainRequest\x12\x0c\n\x04\x64\x61te\x18\x01 \x01(\t\x12\x15\n\rstart_station\x18\x02 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x03 \x01(\t\x12\x13\n\x0bpage_number\x18\x04 \x01(\x05\x12\x11\n\tpage_size\x18\x05 \x01(\x05\"\xb7\x03\n\tTrainInfo\x12\x14\n\x0ctrain_number\x18\x01 \x01(\t\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x15\n\rstart_station\x18\x04 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x05 \x01(\t\x12\x10\n\x08\x64uration\x18\x06 \x01(\x05\x12\r\n\x05price\x18\x07 \x01(\x05\x12:\n\rticket_remain\x18\x08 \x03(\x0b\x32#.ticket.TrainInfo.TicketRemainEntry\x12@\n\x10ticket_alternate\x18\t \x03(\x0b\x32&.ticket.TrainInfo.TicketAlternateEntry\x1a\x33\n\x11TicketRemainEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x1a\x36\n\x14TicketAlternateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"K\n\rTrainResponse\x12\x1f\n\x04\x64\x61ta\x18\x01 \x03(\x0b\x32\x11.ticket.TrainInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t\"\xb7\x01\n\x0cOrderRequest\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\x12\x12\n\npassengers\x18\x06 \x03(\t\x12+\n\x0c\x63ommon_query\x18\x07 \x01(\x0b\x32\x15.ticket.CommonRequest\"s\n\tOrderInfo\x12\x15\n\rstart_station\x18\x01 \x01(\t\x12\x13\n\x0b\x65nd_station\x18\x02 \x01(\t\x12\r\n\x05\x64\x61tes\x18\x03 \x03(\t\x12\x15\n\rtrain_numbers\x18\x04 \x03(\t\x12\x14\n\x0cticket_types\x18\x05 \x03(\t\"M\n\rOrderResponse\x12!\n\x06orders\x18\x01 \x03(\x0b\x32\x11.ticket.OrderInfo\x12\x0c\n\x04\x63ode\x18\x02 \x01(\x05\x12\x0b\n\x03msg\x18\x03 \x01(\t2\xbb\x02\n\x0bTrainServer\x12\x39\n\x05Login\x12\x14.ticket.LoginRequest\x1a\x18.ticket.UserInfoResponse\"\x00\x12\x38\n\x0bGetUserInfo\x12\r.ticket.Empty\x1a\x18.ticket.UserInfoResponse\"\x00\x12=\n\x0cGetTrainInfo\x12\x14.ticket.TrainRequest\x1a\x15.ticket.TrainResponse\"\x00\x12:\n\x08\x41\x64\x64Order\x12\x14.ticket.OrderRequest\x1a\x16.ticket.CommonResponse\"\x00\x12<\n\nQueryOrder\x12\x15.ticket.CommonRequest\x1a\x15.ticket.OrderResponse\"\x00\x62\x06proto3')
+  ,
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
@@ -45,8 +47,8 @@ _EMPTY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=24,
-  serialized_end=31,
+  serialized_start=57,
+  serialized_end=64,
 )
 
 
@@ -83,8 +85,8 @@ _LOGINREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=33,
-  serialized_end=83,
+  serialized_start=66,
+  serialized_end=116,
 )
 
 
@@ -114,8 +116,8 @@ _COMMONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=85,
-  serialized_end=118,
+  serialized_start=118,
+  serialized_end=151,
 )
 
 
@@ -152,8 +154,8 @@ _COMMONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=120,
-  serialized_end=163,
+  serialized_start=153,
+  serialized_end=196,
 )
 
 
@@ -211,8 +213,8 @@ _PASSENGER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=165,
-  serialized_end=260,
+  serialized_start=198,
+  serialized_end=293,
 )
 
 
@@ -256,8 +258,8 @@ _USERINFORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=262,
-  serialized_end=346,
+  serialized_start=295,
+  serialized_end=379,
 )
 
 
@@ -315,8 +317,8 @@ _TRAINREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=348,
-  serialized_end=460,
+  serialized_start=381,
+  serialized_end=493,
 )
 
 
@@ -353,8 +355,8 @@ _TRAININFO_TICKETREMAINENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=706,
-  serialized_end=757,
+  serialized_start=828,
+  serialized_end=879,
 )
 
 _TRAININFO_TICKETALTERNATEENTRY = _descriptor.Descriptor(
@@ -373,8 +375,8 @@ _TRAININFO_TICKETALTERNATEENTRY = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='value', full_name='ticket.TrainInfo.TicketAlternateEntry.value', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=2, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -390,8 +392,8 @@ _TRAININFO_TICKETALTERNATEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=759,
-  serialized_end=813,
+  serialized_start=881,
+  serialized_end=935,
 )
 
 _TRAININFO = _descriptor.Descriptor(
@@ -410,15 +412,15 @@ _TRAININFO = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='start_time', full_name='ticket.TrainInfo.start_time', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='end_time', full_name='ticket.TrainInfo.end_time', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -437,15 +439,29 @@ _TRAININFO = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ticket_remain', full_name='ticket.TrainInfo.ticket_remain', index=5,
-      number=6, type=11, cpp_type=10, label=3,
+      name='duration', full_name='ticket.TrainInfo.duration', index=5,
+      number=6, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='price', full_name='ticket.TrainInfo.price', index=6,
+      number=7, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ticket_remain', full_name='ticket.TrainInfo.ticket_remain', index=7,
+      number=8, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='ticket_alternate', full_name='ticket.TrainInfo.ticket_alternate', index=6,
-      number=7, type=11, cpp_type=10, label=3,
+      name='ticket_alternate', full_name='ticket.TrainInfo.ticket_alternate', index=8,
+      number=9, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -462,8 +478,8 @@ _TRAININFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=463,
-  serialized_end=813,
+  serialized_start=496,
+  serialized_end=935,
 )
 
 
@@ -507,8 +523,8 @@ _TRAINRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=815,
-  serialized_end=890,
+  serialized_start=937,
+  serialized_end=1012,
 )
 
 
@@ -580,8 +596,8 @@ _ORDERREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=893,
-  serialized_end=1076,
+  serialized_start=1015,
+  serialized_end=1198,
 )
 
 
@@ -639,8 +655,8 @@ _ORDERINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1078,
-  serialized_end=1193,
+  serialized_start=1200,
+  serialized_end=1315,
 )
 
 
@@ -684,13 +700,15 @@ _ORDERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1195,
-  serialized_end=1272,
+  serialized_start=1317,
+  serialized_end=1394,
 )
 
 _USERINFORESPONSE.fields_by_name['passengers'].message_type = _PASSENGER
 _TRAININFO_TICKETREMAINENTRY.containing_type = _TRAININFO
 _TRAININFO_TICKETALTERNATEENTRY.containing_type = _TRAININFO
+_TRAININFO.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_TRAININFO.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _TRAININFO.fields_by_name['ticket_remain'].message_type = _TRAININFO_TICKETREMAINENTRY
 _TRAININFO.fields_by_name['ticket_alternate'].message_type = _TRAININFO_TICKETALTERNATEENTRY
 _TRAINRESPONSE.fields_by_name['data'].message_type = _TRAININFO
@@ -820,8 +838,8 @@ _TRAINSERVER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=1275,
-  serialized_end=1590,
+  serialized_start=1397,
+  serialized_end=1712,
   methods=[
   _descriptor.MethodDescriptor(
     name='Login',
