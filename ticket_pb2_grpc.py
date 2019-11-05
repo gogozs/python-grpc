@@ -14,9 +14,9 @@ class TrainServerStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.LoginRequest = channel.unary_unary(
-        '/ticket.TrainServer/LoginRequest',
-        request_serializer=ticket__pb2.LoginQuery.SerializeToString,
+    self.Login = channel.unary_unary(
+        '/ticket.TrainServer/Login',
+        request_serializer=ticket__pb2.LoginRequest.SerializeToString,
         response_deserializer=ticket__pb2.UserInfoResponse.FromString,
         )
     self.GetUserInfo = channel.unary_unary(
@@ -26,17 +26,17 @@ class TrainServerStub(object):
         )
     self.GetTrainInfo = channel.unary_unary(
         '/ticket.TrainServer/GetTrainInfo',
-        request_serializer=ticket__pb2.TrainQuery.SerializeToString,
+        request_serializer=ticket__pb2.TrainRequest.SerializeToString,
         response_deserializer=ticket__pb2.TrainResponse.FromString,
         )
     self.AddOrder = channel.unary_unary(
         '/ticket.TrainServer/AddOrder',
-        request_serializer=ticket__pb2.OrderParams.SerializeToString,
+        request_serializer=ticket__pb2.OrderRequest.SerializeToString,
         response_deserializer=ticket__pb2.CommonResponse.FromString,
         )
     self.QueryOrder = channel.unary_unary(
         '/ticket.TrainServer/QueryOrder',
-        request_serializer=ticket__pb2.CommonQuery.SerializeToString,
+        request_serializer=ticket__pb2.CommonRequest.SerializeToString,
         response_deserializer=ticket__pb2.OrderResponse.FromString,
         )
 
@@ -45,7 +45,7 @@ class TrainServerServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def LoginRequest(self, request, context):
+  def Login(self, request, context):
     """登录
     """
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -83,9 +83,9 @@ class TrainServerServicer(object):
 
 def add_TrainServerServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'LoginRequest': grpc.unary_unary_rpc_method_handler(
-          servicer.LoginRequest,
-          request_deserializer=ticket__pb2.LoginQuery.FromString,
+      'Login': grpc.unary_unary_rpc_method_handler(
+          servicer.Login,
+          request_deserializer=ticket__pb2.LoginRequest.FromString,
           response_serializer=ticket__pb2.UserInfoResponse.SerializeToString,
       ),
       'GetUserInfo': grpc.unary_unary_rpc_method_handler(
@@ -95,17 +95,17 @@ def add_TrainServerServicer_to_server(servicer, server):
       ),
       'GetTrainInfo': grpc.unary_unary_rpc_method_handler(
           servicer.GetTrainInfo,
-          request_deserializer=ticket__pb2.TrainQuery.FromString,
+          request_deserializer=ticket__pb2.TrainRequest.FromString,
           response_serializer=ticket__pb2.TrainResponse.SerializeToString,
       ),
       'AddOrder': grpc.unary_unary_rpc_method_handler(
           servicer.AddOrder,
-          request_deserializer=ticket__pb2.OrderParams.FromString,
+          request_deserializer=ticket__pb2.OrderRequest.FromString,
           response_serializer=ticket__pb2.CommonResponse.SerializeToString,
       ),
       'QueryOrder': grpc.unary_unary_rpc_method_handler(
           servicer.QueryOrder,
-          request_deserializer=ticket__pb2.CommonQuery.FromString,
+          request_deserializer=ticket__pb2.CommonRequest.FromString,
           response_serializer=ticket__pb2.OrderResponse.SerializeToString,
       ),
   }
