@@ -36,7 +36,7 @@ message Passenger {
 // 获取用户信息
 message UserInfoResponse {
     repeated Passenger passengers = 1; // User list
-    int32 code = 2; // 1 success  其它对应不同error
+    int32 code = 2; // 0 success  其它对应不同error
     string msg = 3;
 }
 
@@ -65,7 +65,7 @@ message TrainInfo {
 // 车次查询结果
 message TrainResponse {
     repeated TrainInfo data = 1;
-    int32 code = 2; // 1 success  其它对应不同error
+    int32 code = 2; // 0 success  其它对应不同error
     string msg = 3;
 }
 
