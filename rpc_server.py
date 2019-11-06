@@ -6,6 +6,7 @@ import grpc
 import ticket_pb2
 import ticket_pb2_grpc
 import datetime
+from google.protobuf.timestamp_pb2 import Timestamp
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
@@ -32,8 +33,8 @@ class Server(ticket_pb2_grpc.TrainServerServicer):
             data=[
                 ticket_pb2.TrainInfo(
                     train_number='G1',
-                    start_time=datetime.datetime.now(),
-                    end_time=datetime.datetime.now(),
+                    start_time=Timestamp(),
+                    end_time=Timestamp(),
                     duration=3600 * 3,
                     price=262.5,
                     ticket_remain={"二等座": "5", "一等座": "有"},
@@ -41,8 +42,8 @@ class Server(ticket_pb2_grpc.TrainServerServicer):
                 ),
                 ticket_pb2.TrainInfo(
                     train_number='G2',
-                    start_time=datetime.datetime.now(),
-                    end_time=datetime.datetime.now(),
+                    start_time=Timestamp(),
+                    end_time=Timestamp(),
                     duration=3600 * 1,
                     price=362.5,
                     ticket_remain={"二等座": "有", "一等座": "有"},
