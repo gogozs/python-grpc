@@ -9,7 +9,7 @@ import ticket_pb2_grpc
 def run():
     channel = grpc.insecure_channel('localhost:50051')
     stub = ticket_pb2_grpc.TrainServerStub(channel)
-    response = stub.GetUserInfo(ticket_pb2.CommonQuery(username='zs'))
+    response = stub.GetUserInfo(ticket_pb2.CommonRequest(username='zs'))
     print( response )
 
 

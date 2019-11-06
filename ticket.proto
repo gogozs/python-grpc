@@ -57,7 +57,7 @@ message TrainInfo {
     string start_station = 4; // 起点
     string end_station = 5; // 终点
     int32 duration = 6; // 运行时长 秒
-    int32 price = 7; // 价格
+    float price = 7; // 价格
     map<string, string> ticket_remain = 8; // key: 座位类型  value: 余票数量
     map<string, bool> ticket_alternate = 9; // key: 座位类型  value: 候补状态
 }
