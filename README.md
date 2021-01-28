@@ -1,16 +1,19 @@
-## python grpc
+# Python Grpc库
 
-### install
-```
-pip install grpcio
-pip install grpcio-tools
-```
+## install
 
-### usage
-```
-python -m grpc.tools.protoc -I=. --python_out=./ --grpc_python_out=./ ticket.proto
+### pip
+
+```shell
+pip install python-grpc
 ```
 
+## source code
 
-### 状态码
-> 参考 [grpc状态码](https://skyao.io/learning-grpc/server/status/status_code_definition.html)
+```shell
+git clone https://github.com/go-zs/python-grpc
+or
+git@github.com:go-zs/python-grpc.git
+
+python setup.py install
+```
