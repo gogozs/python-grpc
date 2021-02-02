@@ -26,11 +26,24 @@ class Runner(object):
     def __init__(
         self,
         uri: str,
-        register,
+        stub_func,
         interceptors: type_client_inspectors = None,
         secure: bool = False,
         crt: str = None,
     ):
+        """client runner
+        :param uri: grpc server uri
+        :param stub_func: find in xx_pb2_grpc.py like XxServerStub
+        :param interceptors:
+        :param secure: if true run with ssl
+        :param crt: ssl key
+        
+        sample:
+        >>> with Runner("localhost:50051", ticket_pb2_grpc.TrainServerStub) as stub:
+        >>>      response = stub.GetUserInfo(ticket_pb2.CommonRequest(username="zs"))
+        >>>      print(response)
+
+        """
         self._channel: Optional[Channel] = None
         self._stub: Any = None
         if not interceptors:
@@ -38,9 +51,9 @@ class Runner(object):
         if secure and not crt:
             raise Exception("secure mode need crt")
         if secure:
-            self.run_secure(uri, crt, interceptors, register)
+            self._run_secure(uri, crt, interceptors, stub_func)
         else:
-            self.run_insecure(uri, interceptors, register)
+            self._run_insecure(uri, interceptors, stub_func)
 
     def __enter__(self):
         return self._stub
@@ -52,7 +65,7 @@ class Runner(object):
     def _close(self):
         self._channel.close()
 
-    def run_secure(
+    def _run_secure(
         self,
         uri: str,
         crt: str,
@@ -65,7 +78,7 @@ class Runner(object):
         self._channel = grpc.intercept_channel(self._channel, *interceptors)
         self._stub = register(self._channel)
 
-    def run_insecure(self, uri: str, interceptors, register: Callable[[Channel], None]):
+    def _run_insecure(self, uri: str, interceptors, register: Callable[[Channel], None]):
         self._channel = grpc.intercept_channel(
             grpc.insecure_channel(uri), *interceptors
         )

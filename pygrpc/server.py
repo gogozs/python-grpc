@@ -16,7 +16,7 @@ enable_graceful = True
 def serve(
     name: str,
     target_server: Any,
-    register: Callable[[Any, Server], None],
+    server_register: Callable[[Any, Server], None],
     port: int = 7070,
     interceptors: Optional[List[ServerInterceptor]] = None,
     max_workers: int = 100,
@@ -28,7 +28,7 @@ def serve(
     """
     :param name: 名称
     :param target_server: 实现类实例
-    :param register: add function
+    :param server_register: 注册function, find in xx_pb2_grpc.py like: add_XxServicer_to_server
     :param port: 端口
     :param interceptors: 拦截器
     :param max_workers: 并发数
@@ -46,7 +46,7 @@ def serve(
     server = grpc.server(
         futures.ThreadPoolExecutor(max_workers=max_workers), interceptors=interceptors
     )
-    register(target_server, server)
+    server_register(target_server, server)
     if secure:
         with open(key, "rb") as f:
             private_key = f.read()
