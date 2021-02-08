@@ -1,8 +1,11 @@
+import logging
 import ticket_pb2
 import ticket_pb2_grpc
 from google.protobuf.timestamp_pb2 import Timestamp
 
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 class Server(ticket_pb2_grpc.TrainServerServicer):

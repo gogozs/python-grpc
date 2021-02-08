@@ -8,7 +8,10 @@ from concurrent import futures
 from grpc import ServerInterceptor
 import logging
 
-default_interceptor_list: List[ServerInterceptor] = []
+from pygrpc.interceptors.server.logger import LoggerInterceptor
+from pygrpc.interceptors.server.recover import RecoverInterceptor
+
+default_interceptor_list: List[ServerInterceptor] = [LoggerInterceptor(), RecoverInterceptor()]
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 enable_graceful = True
 
@@ -23,7 +26,7 @@ def serve(
     secure: bool = False,
     key: str = "",
     crt: str = "",
-    block: bool = True
+    block: bool = True,
 ):
     """
     :param name: 名称
@@ -66,7 +69,7 @@ def serve(
 
     server.start()  # start() 不会阻塞
     logging.info(f"{name} server start")
-    
+
     if block:
         try:
             while True:

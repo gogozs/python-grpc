@@ -22,6 +22,7 @@ type_client_inspectors = Optional[
 default_interceptors: type_client_inspectors = []
 
 
+
 class Runner(object):
     def __init__(
         self,
@@ -37,7 +38,7 @@ class Runner(object):
         :param interceptors:
         :param secure: if true run with ssl
         :param crt: ssl key
-        
+
         sample:
         >>> with Runner("localhost:50051", ticket_pb2_grpc.TrainServerStub) as stub:
         >>>      response = stub.GetUserInfo(ticket_pb2.CommonRequest(username="zs"))
@@ -78,7 +79,9 @@ class Runner(object):
         self._channel = grpc.intercept_channel(self._channel, *interceptors)
         self._stub = register(self._channel)
 
-    def _run_insecure(self, uri: str, interceptors, register: Callable[[Channel], None]):
+    def _run_insecure(
+        self, uri: str, interceptors, register: Callable[[Channel], None]
+    ):
         self._channel = grpc.intercept_channel(
             grpc.insecure_channel(uri), *interceptors
         )
